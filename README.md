@@ -1,3 +1,5 @@
+# Typecho 评论邮件回复系统
+
 对于个人博客来说，评论回复很难被人关注到永远是个人博客需要注意的一个点。在之前博客采用的 cms 还是 typecho 的时候（当然现在不是了，直接跳罐子的请自我反思一下），尝试过采用 CommentToMail 插件 来进行评论邮件的操作，但是几经调试觉得是真的难用。于是就：
 
 ![0.0](https://github.com/xiaolongtongxue/typecho_comment_mail/images/image-20230601205949008.png)
