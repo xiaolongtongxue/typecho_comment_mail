@@ -1,8 +1,6 @@
-# Typecho Commit mail
-
 对于个人博客来说，评论回复很难被人关注到永远是个人博客需要注意的一个点。在之前博客采用的 cms 还是 typecho 的时候（当然现在不是了，直接跳罐子的请自我反思一下），尝试过采用 CommentToMail 插件 来进行评论邮件的操作，但是几经调试觉得是真的难用。于是就：
 
-![0.0](/xiaolongtongxue/typecho_comment_mail/images/image-20230601205949008.png)
+![0.0](https://github.com/xiaolongtongxue/typecho_comment_mail/images/image-20230601205949008.png)
 
 最近为了解决这个问题，这边更换了一种思路。头一阵子在对 XL-Sec（[详情链接](/archives/122/)）的用户模块进行研发的时候，发现 python 的 PyEmail 相关类库是真的好用！！
 
@@ -47,11 +45,11 @@ finally:
 
 通过设计 for_mail.py 来获取参数，通过获取的参数来进行 Jinja2 合成 HTML，并通过邮箱进行发送。同时为了避免RCE攻击，也需要使用 shlex 进行相关参数的过滤。直接命令行操控的程序为 mail.py。基本流程如下图所示：
 
-![基本流程](/xiaolongtongxue/typecho_comment_mail/images/image-20230601212816615.png)
+![基本流程](https://github.com/xiaolongtongxue/typecho_comment_mail/images/image-20230601212816615.png)
 
 这边针对 Typecho 开发了一套评论邮件自动回复的方案，考虑到对实际生产业务性能的而影响，最终实现的效果为评论的内容会在五分钟之内恢复到上一级评论者的邮箱中（自己给自己回复的不予发送），同时考虑到邮箱轰炸行为的可能，这边使用Redis对回复邮箱的行为进行了限制，如果配合好 XL-Sec 的CC防御功能，则可有效避免邮箱轰炸的行为出现。
 
-![实际上的发送邮件操作](/xiaolongtongxue/typecho_comment_mail/images/image-20230601212342682.png)
+![实际上的发送邮件操作](https://github.com/xiaolongtongxue/typecho_comment_mail/images/image-20230601212342682.png)
 
 # 实际效果
 
@@ -61,7 +59,7 @@ finally:
 
 邮件长这样
 
-![image-20230601214122435](/xiaolongtongxue/typecho_comment_mail/images/image-20230601214122435.png)
+![image-20230601214122435](https://github.com/xiaolongtongxue/typecho_comment_mail/images/image-20230601214122435.png)
 
 # 特点
 
@@ -96,9 +94,9 @@ finally:
 
 | **git**  | **链接**                                                     |
 | -------- | ------------------------------------------------------------ |
-| Github   | **[https://github.com/xiaolongtongxue/typecho_comment_mail](https://github.com/xiaolongtongxue/typecho_comment_mail)** |
-| Gitee    | **[https://gitee.com/xiaolongtongxue/typecho_comment_mail](https://gitee.com/xiaolongtongxue/typecho_comment_mail)** |
-| 个人Gogs | **[https://git.txk123.top/xiaolongtongxue/typecho_comment_mail](https://git.txk123.top/xiaolongtongxue/typecho_comment_mail)** |
+| Github   | **[https://github.comhttps://github.com/xiaolongtongxue/typecho_comment_mail](https://github.comhttps://github.com/xiaolongtongxue/typecho_comment_mail)** |
+| Gitee    | **[https://gitee.comhttps://github.com/xiaolongtongxue/typecho_comment_mail](https://gitee.comhttps://github.com/xiaolongtongxue/typecho_comment_mail)** |
+| 个人Gogs | **[https://git.txk123.tophttps://github.com/xiaolongtongxue/typecho_comment_mail](https://git.txk123.tophttps://github.com/xiaolongtongxue/typecho_comment_mail)** |
 
 安装脚本如下：
 
@@ -110,7 +108,7 @@ cd /www/typecho_comment_mail
 
 接下来需要在修改相应的程序中的内容，每隔文件都有，稍稍看下就好，都在前十几行，其中示例中的 typecho_ 实际上就是您的数据库表的表头
 
-![配置示例](/xiaolongtongxue/typecho_comment_mail/images/image-20230601215421370.png)
+![配置示例](https://github.com/xiaolongtongxue/typecho_comment_mail/images/image-20230601215421370.png)
 
 ```bash
 bash install.sh
